@@ -1,24 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
+    <!-- Fundo do jogo -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/prehistoric_forest" />
+
+    <!-- Status do jogador -->
     <TextView
         android:id="@+id/statusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status" />
+        android:text="Posição: (0,0)"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_margin="16dp"
+        android:background="#80000000"
+        android:padding="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 
-    <Button
-        android:id="@+id/exploreButton"
+    <!-- Saúde do jogador -->
+    <TextView
+        android:id="@+id/healthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Explorar" />
+        android:text="Saúde: 100"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_margin="16dp"
+        android:background="#80000000"
+        android:padding="8dp"
+        android:layout_below="@id/statusText"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Botões de movimento -->
+    <Button
+        android:id="@+id/upButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="▲"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/downButton"
+        android:background="@android:color/holo_blue_dark"/>
 
     <Button
-        android:id="@+id/healButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Curar" />
-</LinearLayout>
+        android:id="@+id/downButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="▼"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/holo_blue_dark"/>
+
+    <Button
+        android:id="@+id/leftButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="◀"
+        android:textSize="24sp"
+        android:layout_toLeftOf="@id/upButton"
+        android:layout_alignBottom="@id/upButton"
+        android:background="@android:color/holo_blue_dark"/>
+
+    <Button
+        android:id="@+id/rightButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="▶"
+        android:textSize="24sp"
+        android:layout_toRightOf="@id/upButton"
+        android:layout_alignBottom="@id/upButton"
+        android:background="@android:color/holo_blue_dark"/>
+
+    <!-- Botão para criar remédios -->
+    <Button
+        android:id="@+id/craftButton"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:text="Criar Remédio"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:background="@android:color/holo_green_dark"/>
+
+</RelativeLayout>

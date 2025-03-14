@@ -1,30 +1,34 @@
 package com.example.curadinosauro.models;
 
-public class Dinosaur {
-    private final String name;
-    private final String species;
-    private final int attack;
-    private final int defense;
-    private final int vitality;
-    private boolean isSick;
+public abstract class Dinosaur {
+    protected String name;
+    protected String species;
+    protected int attack, defense, vitality;
+    protected boolean isSick, isHostile;
+    protected int x, y;
 
-    public Dinosaur(String name, String species, int attack, int defense, int vitality, boolean isSick) {
+    public Dinosaur(String name, String species, int attack, int defense, int vitality, boolean isSick, boolean isHostile, int x, int y) {
         this.name = name;
         this.species = species;
         this.attack = attack;
         this.defense = defense;
         this.vitality = vitality;
         this.isSick = isSick;
+        this.isHostile = isHostile;
+        this.x = x;
+        this.y = y;
     }
 
     public void heal() {
         if (isSick) {
             isSick = false;
-            System.out.println(name + " foi curado!");
         }
     }
 
+    public abstract void move();
+
     public String getName() { return name; }
     public boolean isSick() { return isSick; }
-    public int getDefense() { return defense; }
+    public int getX() { return x; }
+    public int getY() { return y; }
 }
